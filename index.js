@@ -46,3 +46,28 @@ console.log(a);
 // Program to find the most frequent element in the following array.
 var a = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
 //TODO should output: 'a'
+var re=[];
+for(var i=0;i<a.length;i++){
+    var sum = 0;
+    for(var j=i;j<a.length;j++){
+        if(a[i] == a[j]){
+            sum++;
+        }
+    }    
+    if(sum!=0){ //如果有重复的元素
+        if(re.length==0){//第一次找到重复元素
+            re[0] = a[i];  //重复元素
+            re[1] = sum;   //重复次数                     
+        }
+		else{            
+            if(Number(re[1]) < sum){ //比较重复次数
+                re[0] = a[i];
+                re[1] = sum;
+            }
+            
+        }        
+    }    
+    
+}
+
+console.log(re[0]);
